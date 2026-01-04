@@ -1,10 +1,28 @@
-const person = {
-    firstName: "Jan",
-    lastName: "Kowalski",
-    age: 30
+function formatTime(value) {
+    
+    if (value < 10) {
+        return "0" + value;
+    } else {
+        return String(value);
+    }
+    
 }
 
-const {firstName:name, lastName:surname, age:years_old} = person;
+function timeCount() {
+    
+    const currentTime = new Date();
 
-console.log(person);
-console.log(name, surname, years_old);
+    const myHours = currentTime.getHours();
+    const myMinutes = currentTime.getMinutes();
+    const mySeconds = currentTime.getSeconds();
+
+    const arrTime = [
+        formatTime(myHours),
+        formatTime(myMinutes),
+        formatTime(mySeconds)
+    ];
+
+    console.log(arrTime.join(":"));
+}
+
+setInterval(timeCount, 1000);
